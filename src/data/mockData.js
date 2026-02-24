@@ -1,6 +1,17 @@
 // ======================================
 // ROADVISION AI — MOCK / DEMO DATA
+// Chennai, Tamil Nadu
 // ======================================
+
+// Chennai key landmarks coords:
+// Central Station: 13.0827, 80.2707
+// T. Nagar:        13.0400, 80.2337
+// Anna Nagar:      13.0850, 80.2101
+// Mylapore:        13.0336, 80.2675
+// Adyar:           13.0063, 80.2574
+// Velachery:       12.9815, 80.2180
+// Perambur:        13.1170, 80.2520
+// Royapuram:       13.1100, 80.2890
 
 export const DAMAGE_REPORTS = [
     {
@@ -8,13 +19,13 @@ export const DAMAGE_REPORTS = [
         image: 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=200&q=80',
         type: 'Pothole',
         severity: 'critical',
-        location: 'MG Road, near Signal 4',
-        lat: 28.6139, lng: 77.2090,
+        location: 'Anna Salai (Mount Road), near Signal 7',
+        lat: 13.0602, lng: 80.2495,
         date: '2026-02-24',
         status: 'assigned',
         assignedTo: 'Team Alpha',
         reportedBy: 'citizen@demo.com',
-        description: 'Large pothole causing vehicle damage',
+        description: 'Large pothole causing vehicle damage near bus stop',
         aiConfidence: 97,
     },
     {
@@ -22,8 +33,8 @@ export const DAMAGE_REPORTS = [
         image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=80',
         type: 'Road Crack',
         severity: 'severe',
-        location: 'NH-44, Kilometer 34',
-        lat: 28.6200, lng: 77.2180,
+        location: 'GST Road, Chromepet Junction',
+        lat: 12.9526, lng: 80.1429,
         date: '2026-02-23',
         status: 'inprogress',
         assignedTo: 'Team Beta',
@@ -36,8 +47,8 @@ export const DAMAGE_REPORTS = [
         image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=80',
         type: 'Surface Damage',
         severity: 'moderate',
-        location: 'Sector 21, Block C',
-        lat: 28.6050, lng: 77.2020,
+        location: 'T. Nagar, Usman Road',
+        lat: 13.0400, lng: 80.2337,
         date: '2026-02-22',
         status: 'reported',
         assignedTo: null,
@@ -50,8 +61,8 @@ export const DAMAGE_REPORTS = [
         image: 'https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=200&q=80',
         type: 'Pothole',
         severity: 'minor',
-        location: 'Park Street Junction',
-        lat: 28.6095, lng: 77.2145,
+        location: 'Mylapore, Luz Church Road',
+        lat: 13.0336, lng: 80.2675,
         date: '2026-02-21',
         status: 'repaired',
         assignedTo: 'Team Gamma',
@@ -64,8 +75,8 @@ export const DAMAGE_REPORTS = [
         image: 'https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?w=200&q=80',
         type: 'Alligator Crack',
         severity: 'critical',
-        location: 'Industrial Zone, Gate 2',
-        lat: 28.6280, lng: 77.2250,
+        location: 'Perambur Barracks Road, Gate 2',
+        lat: 13.1170, lng: 80.2520,
         date: '2026-02-20',
         status: 'assigned',
         assignedTo: 'Team Alpha',
@@ -78,8 +89,8 @@ export const DAMAGE_REPORTS = [
         image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&q=80',
         type: 'Edge Break',
         severity: 'severe',
-        location: 'Bridge Road, West End',
-        lat: 28.6010, lng: 77.1980,
+        location: 'Adyar Bridge Road, Marina End',
+        lat: 13.0063, lng: 80.2574,
         date: '2026-02-19',
         status: 'inprogress',
         assignedTo: 'Team Beta',
@@ -92,8 +103,8 @@ export const DAMAGE_REPORTS = [
         image: 'https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=200&q=80',
         type: 'Pothole',
         severity: 'moderate',
-        location: 'Residential Area, Phase 3',
-        lat: 28.6320, lng: 77.1900,
+        location: 'Anna Nagar, 6th Main Road',
+        lat: 13.0850, lng: 80.2101,
         date: '2026-02-18',
         status: 'reported',
         assignedTo: null,
@@ -106,8 +117,8 @@ export const DAMAGE_REPORTS = [
         image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&q=80',
         type: 'Manhole Issue',
         severity: 'severe',
-        location: 'Central Market, Main Circle',
-        lat: 28.6170, lng: 77.2060,
+        location: 'Royapuram Fish Market Circle',
+        lat: 13.1100, lng: 80.2890,
         date: '2026-02-17',
         status: 'repaired',
         assignedTo: 'Team Delta',
@@ -121,10 +132,10 @@ export const MAINTENANCE_TASKS = [
     {
         id: 'TASK-001',
         reportId: 'RPT-001',
-        title: 'Critical Pothole - MG Road',
+        title: 'Critical Pothole - Anna Salai',
         severity: 'critical',
-        location: 'MG Road, near Signal 4',
-        lat: 28.6139, lng: 77.2090,
+        location: 'Anna Salai (Mount Road), near Signal 7',
+        lat: 13.0602, lng: 80.2495,
         priority: 1,
         distance: '1.2 km',
         assignedTo: 'Team Alpha',
@@ -136,10 +147,10 @@ export const MAINTENANCE_TASKS = [
     {
         id: 'TASK-002',
         reportId: 'RPT-002',
-        title: 'Road Crack - NH-44',
+        title: 'Road Crack - GST Road',
         severity: 'severe',
-        location: 'NH-44, Kilometer 34',
-        lat: 28.6200, lng: 77.2180,
+        location: 'GST Road, Chromepet Junction',
+        lat: 12.9526, lng: 80.1429,
         priority: 2,
         distance: '3.5 km',
         assignedTo: 'Team Alpha',
@@ -151,10 +162,10 @@ export const MAINTENANCE_TASKS = [
     {
         id: 'TASK-003',
         reportId: 'RPT-005',
-        title: 'Alligator Crack - Industrial Zone',
+        title: 'Alligator Crack - Perambur',
         severity: 'critical',
-        location: 'Industrial Zone, Gate 2',
-        lat: 28.6280, lng: 77.2250,
+        location: 'Perambur Barracks Road, Gate 2',
+        lat: 13.1170, lng: 80.2520,
         priority: 1,
         distance: '5.8 km',
         assignedTo: 'Team Alpha',
@@ -166,10 +177,10 @@ export const MAINTENANCE_TASKS = [
     {
         id: 'TASK-004',
         reportId: 'RPT-006',
-        title: 'Edge Break - Bridge Road',
+        title: 'Edge Break - Adyar Bridge',
         severity: 'severe',
-        location: 'Bridge Road, West End',
-        lat: 28.6010, lng: 77.1980,
+        location: 'Adyar Bridge Road, Marina End',
+        lat: 13.0063, lng: 80.2574,
         priority: 2,
         distance: '7.2 km',
         assignedTo: 'Team Alpha',
@@ -186,8 +197,8 @@ export const ALERTS = [
         type: 'critical',
         icon: '🚨',
         title: 'Critical Pothole Detected',
-        message: 'AI detected a severe pothole at MG Road with 97% confidence',
-        location: 'MG Road, near Signal 4',
+        message: 'AI detected a severe pothole at Anna Salai with 97% confidence',
+        location: 'Anna Salai (Mount Road), near Signal 7',
         time: '2 min ago',
         read: false,
     },
@@ -196,8 +207,8 @@ export const ALERTS = [
         type: 'warning',
         icon: '⚠️',
         title: 'Repeated Reports — Same Location',
-        message: '5 reports received from NH-44 Km 34 in the last 24 hours',
-        location: 'NH-44, Kilometer 34',
+        message: '5 reports received from GST Road, Chromepet in the last 24 hours',
+        location: 'GST Road, Chromepet Junction',
         time: '18 min ago',
         read: false,
     },
@@ -206,8 +217,8 @@ export const ALERTS = [
         type: 'critical',
         icon: '🚧',
         title: 'Repair Overdue',
-        message: 'Industrial Zone crack repair is 3 days overdue',
-        location: 'Industrial Zone, Gate 2',
+        message: 'Perambur alligator crack repair is 3 days overdue',
+        location: 'Perambur Barracks Road, Gate 2',
         time: '1 hr ago',
         read: false,
     },
@@ -216,8 +227,8 @@ export const ALERTS = [
         type: 'warning',
         icon: '📍',
         title: 'New Damage Cluster',
-        message: 'Hotspot detected: 8 reports within 500m radius in Sector 21',
-        location: 'Sector 21',
+        message: 'Hotspot detected: 8 reports within 500m radius in T. Nagar',
+        location: 'T. Nagar, Chennai',
         time: '2 hr ago',
         read: true,
     },
@@ -226,8 +237,8 @@ export const ALERTS = [
         type: 'info',
         icon: '✅',
         title: 'Repair Completed',
-        message: 'Team Gamma completed pothole repair at Park Street Junction',
-        location: 'Park Street Junction',
+        message: 'Team Gamma completed pothole repair at Mylapore Luz Church Road',
+        location: 'Mylapore, Luz Church Road',
         time: '3 hr ago',
         read: true,
     },
@@ -236,8 +247,8 @@ export const ALERTS = [
         type: 'critical',
         icon: '🚨',
         title: 'Critical Alligator Crack',
-        message: 'New critical damage report in Industrial Zone — immediate action needed',
-        location: 'Industrial Zone, Gate 2',
+        message: 'New critical damage report in Perambur — immediate action needed',
+        location: 'Perambur Barracks Road, Gate 2',
         time: '5 hr ago',
         read: true,
     },
@@ -260,12 +271,12 @@ export const REPAIR_TIMELINE_DATA = [
 ];
 
 export const HOTSPOT_DATA = [
-    { zone: 'MG Road', reports: 42, critical: 8 },
-    { zone: 'NH-44', reports: 35, critical: 5 },
-    { zone: 'Industrial Zone', reports: 28, critical: 7 },
-    { zone: 'Sector 21', reports: 22, critical: 3 },
-    { zone: 'Bridge Road', reports: 18, critical: 4 },
-    { zone: 'Park Street', reports: 14, critical: 1 },
+    { zone: 'Anna Salai', reports: 42, critical: 8 },
+    { zone: 'GST Road', reports: 35, critical: 5 },
+    { zone: 'Perambur', reports: 28, critical: 7 },
+    { zone: 'T. Nagar', reports: 22, critical: 3 },
+    { zone: 'Adyar Bridge', reports: 18, critical: 4 },
+    { zone: 'Mylapore', reports: 14, critical: 1 },
 ];
 
 export const EFFICIENCY_DATA = [
@@ -284,11 +295,15 @@ export const MAINTENANCE_CREWS = [
     { id: 'TEAM-D', name: 'Team Delta', members: 3, available: true, activeJobs: 0 },
 ];
 
+// Chennai: Anna Salai area safe-route hazards
 export const SAFE_ROUTE_HAZARDS = [
-    { id: 1, lat: 28.6139, lng: 77.2090, name: 'Critical Pothole', severity: 'critical', distance: '500m from route' },
-    { id: 2, lat: 28.6200, lng: 77.2180, name: 'Road Crack', severity: 'severe', distance: 'On route — caution' },
-    { id: 3, lat: 28.6050, lng: 77.2020, name: 'Surface Damage', severity: 'moderate', distance: '200m from route' },
+    { id: 1, lat: 13.0602, lng: 80.2495, name: 'Critical Pothole', severity: 'critical', distance: '500m from route' },
+    { id: 2, lat: 12.9526, lng: 80.1429, name: 'Road Crack', severity: 'severe', distance: 'On route — caution' },
+    { id: 3, lat: 13.0400, lng: 80.2337, name: 'Surface Damage', severity: 'moderate', distance: '200m from route' },
 ];
+
+// Chennai centre: ~13.0827, 80.2707
+export const MAP_CENTER = [13.0627, 80.2300]; // central Chennai viewport
 
 export const ADMIN_STATS = {
     totalDamages: 156,

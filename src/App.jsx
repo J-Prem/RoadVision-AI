@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React from 'react';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import AppLayout from './components/Layout/AppLayout';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -81,11 +82,13 @@ const AppRoutes = () => {
 };
 
 const App = () => (
-  <BrowserRouter>
-    <AuthProvider>
-      <AppRoutes />
-    </AuthProvider>
-  </BrowserRouter>
+  <HashRouter>
+    <ThemeProvider>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
+    </ThemeProvider>
+  </HashRouter>
 );
 
 export default App;

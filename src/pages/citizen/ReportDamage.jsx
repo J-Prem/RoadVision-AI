@@ -115,7 +115,7 @@ const ReportDamage = () => {
                                 <Upload size={32} color="var(--text-muted)" style={{ marginBottom: 10 }} />
                                 <p style={{ fontSize: 14, fontWeight: 500, marginBottom: 4, color: 'var(--text-primary)' }}>Drop image here or click to upload</p>
                                 <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>JPG, PNG, HEIC supported</p>
-                                <input ref={fileRef} type="file" accept="image/*" hidden onChange={e => handleImage(e.target.files[0])} capture="environment" />
+                                <input ref={fileRef} type="file" accept="image/*" hidden onChange={e => handleImage(e.target.files[0])} />
                             </div>
                         )}
                     </div>

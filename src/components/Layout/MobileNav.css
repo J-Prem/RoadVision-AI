@@ -42,3 +42,22 @@
         display: flex;
     }
 }
+
+/* ===== LIGHT MODE ===== */
+[data-theme="light"] .mobile-nav {
+    background: rgba(240, 244, 248, 0.98);
+    border-top-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .mob-nav-item {
+    color: #7a95aa;
+}
+
+[data-theme="light"] .mob-nav-item:hover {
+    color: #3a5068;
+}
+
+[data-theme="light"] .mob-nav-item.active {
+    color: #007aab;
+    background: rgba(0, 150, 210, 0.1);
+}

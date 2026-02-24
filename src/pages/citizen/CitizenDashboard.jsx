@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AlertTriangle, FileText, Radio, MapPin, TrendingUp, Clock, CheckCircle, Zap } from 'lucide-react';
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
-import { CITIZEN_STATS, DAMAGE_REPORTS, ALERTS } from '../../data/mockData';
+import { MapContainer, CircleMarker, Popup } from 'react-leaflet';
+import { CITIZEN_STATS, DAMAGE_REPORTS, ALERTS, MAP_CENTER } from '../../data/mockData';
 import { SeverityBadge, StatusBadge } from '../../components/SeverityBadge';
+import ThemedTileLayer from '../../components/ThemedTileLayer';
 import 'leaflet/dist/leaflet.css';
 
 const COLOR = { minor: '#00cc66', moderate: '#ffaa00', severe: '#ff6600', critical: '#ff4444' };
@@ -87,11 +88,8 @@ const CitizenDashboard = () => {
                         <Link to="/citizen/map" className="btn btn-outline btn-sm">Full Map</Link>
                     </div>
                     <div style={{ height: 280, borderRadius: 10, overflow: 'hidden', border: '1px solid var(--border-color)' }}>
-                        <MapContainer center={[28.6139, 77.2090]} zoom={13} style={{ height: '100%', width: '100%' }} zoomControl={false}>
-                            <TileLayer
-                                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                            />
+                        <MapContainer center={MAP_CENTER} zoom={11} style={{ height: '100%', width: '100%' }} zoomControl={false}>
+                            <ThemedTileLayer />
                             {nearby.map(r => (
                                 <CircleMarker
                                     key={r.id}

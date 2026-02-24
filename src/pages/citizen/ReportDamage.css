@@ -137,3 +137,31 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== LIGHT MODE ===== */
+[data-theme="light"] .ai-overlay {
+    background: rgba(240, 244, 248, 0.75);
+    color: #007aab;
+}
+
+[data-theme="light"] .ai-result-overlay {
+    background: linear-gradient(transparent, rgba(240, 244, 248, 0.95));
+}
+
+[data-theme="light"] .sev-btn {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: #3a5068;
+}
+
+[data-theme="light"] .sev-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .remove-img-btn {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .report-success p {
+    color: #3a5068;
+}

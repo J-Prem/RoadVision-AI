@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Bell, Sun, Moon, ChevronDown, AlertTriangle } from 'lucide-react';
+import { Bell, Sun, Moon, AlertTriangle } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 import { ALERTS } from '../../data/mockData';
 import './Navbar.css';
 
 const Navbar = () => {
     const { user } = useAuth();
+    const { theme, toggleTheme } = useTheme();
     const [showNotif, setShowNotif] = useState(false);
     const [hasCritical] = useState(ALERTS.some(a => a.type === 'critical' && !a.read));
     const unread = ALERTS.filter(a => !a.read).length;
@@ -30,6 +32,19 @@ const Navbar = () => {
             </div>
 
             <div className="navbar-right">
+                {/* Theme Toggle */}
+                <button
+                    className="icon-btn theme-toggle-btn"
+                    onClick={toggleTheme}
+                    aria-label="Toggle theme"
+                    title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                >
+                    {theme === 'dark'
+                        ? <Sun size={17} color="#ffdd57" />
+                        : <Moon size={17} color="#6366f1" />
+                    }
+                </button>
+
                 {/* Notifications */}
                 <div className="notif-container">
                     <button

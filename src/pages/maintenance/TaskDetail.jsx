@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
+import { MapContainer, CircleMarker, Popup } from 'react-leaflet';
 import { ArrowLeft, Upload, CheckCircle, Camera, Navigation } from 'lucide-react';
 import { MAINTENANCE_TASKS } from '../../data/mockData';
 import { SeverityBadge, StatusBadge } from '../../components/SeverityBadge';
+import ThemedTileLayer from '../../components/ThemedTileLayer';
 import 'leaflet/dist/leaflet.css';
 
 const COLOR = { minor: '#00cc66', moderate: '#ffaa00', severe: '#ff6600', critical: '#ff4444' };
@@ -70,7 +71,7 @@ const TaskDetail = () => {
                         </div>
                         <div style={{ height: 200, borderRadius: 8, overflow: 'hidden', border: '1px solid var(--border-color)' }}>
                             <MapContainer center={[task.lat, task.lng]} zoom={15} zoomControl={false} style={{ height: '100%', width: '100%' }}>
-                                <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
+                                <ThemedTileLayer />
                                 <CircleMarker center={[task.lat, task.lng]} radius={14}
                                     fillColor={COLOR[task.severity]} color={COLOR[task.severity]} fillOpacity={0.9} weight={3}>
                                     <Popup><strong>{task.title}</strong></Popup>
@@ -110,7 +111,7 @@ const TaskDetail = () => {
                             : <div className="upload-zone" onClick={() => beforeRef.current?.click()}>
                                 <Upload size={24} color="var(--text-muted)" />
                                 <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 6 }}>Upload before photo</p>
-                                <input ref={beforeRef} type="file" accept="image/*" hidden onChange={e => handleImg(e.target.files[0], setBeforeImg)} capture="environment" />
+                                <input ref={beforeRef} type="file" accept="image/*" hidden onChange={e => handleImg(e.target.files[0], setBeforeImg)} />
                             </div>
                         }
                     </div>
@@ -123,7 +124,7 @@ const TaskDetail = () => {
                             : <div className="upload-zone" onClick={() => afterRef.current?.click()}>
                                 <Upload size={24} color="var(--text-muted)" />
                                 <p style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 6 }}>Upload after photo</p>
-                                <input ref={afterRef} type="file" accept="image/*" hidden onChange={e => handleImg(e.target.files[0], setAfterImg)} capture="environment" />
+                                <input ref={afterRef} type="file" accept="image/*" hidden onChange={e => handleImg(e.target.files[0], setAfterImg)} />
                             </div>
                         }
                     </div>

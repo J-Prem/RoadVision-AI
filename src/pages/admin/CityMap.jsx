@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
+import { MapContainer, CircleMarker, Popup } from 'react-leaflet';
 import { Layers, Filter, Download } from 'lucide-react';
-import { DAMAGE_REPORTS } from '../../data/mockData';
+import { DAMAGE_REPORTS, MAP_CENTER } from '../../data/mockData';
 import { SeverityBadge, StatusBadge } from '../../components/SeverityBadge';
+import ThemedTileLayer from '../../components/ThemedTileLayer';
 import 'leaflet/dist/leaflet.css';
 
 const COLOR = { minor: '#00cc66', moderate: '#ffaa00', severe: '#ff6600', critical: '#ff4444' };
@@ -43,11 +44,8 @@ const CityMap = () => {
 
             {/* Map */}
             <div style={{ flex: 1, borderRadius: 12, overflow: 'hidden', border: '1px solid var(--border-color)', minHeight: 400, position: 'relative' }}>
-                <MapContainer center={[28.6139, 77.2090]} zoom={13} style={{ height: '100%', width: '100%' }}>
-                    <TileLayer
-                        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                        attribution='&copy; OpenStreetMap contributors &copy; CARTO'
-                    />
+                <MapContainer center={MAP_CENTER} zoom={11} style={{ height: '100%', width: '100%' }}>
+                    <ThemedTileLayer />
                     {visible.map(r => (
                         <CircleMarker key={r.id} center={[r.lat, r.lng]}
                             radius={r.severity === 'critical' ? 16 : r.severity === 'severe' ? 12 : 9}
