@@ -22,3 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Backend specific
+backend/training_data_enrichment/
+backend/runs/
+*.pt
+!backend/road_damage_best.pt

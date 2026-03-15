@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import {
     LayoutDashboard, Map, FileText, Bell, BarChart2,
     Settings, ClipboardList, LogOut, Radio, ChevronLeft, ChevronRight,
-    Navigation, Wrench, AlertTriangle
+    Navigation, Wrench, AlertTriangle, ScanSearch
 } from 'lucide-react';
 import './Sidebar.css';
 
@@ -14,6 +14,7 @@ const navConfig = {
         { icon: Map, label: 'Map View', path: '/citizen/map' },
         { icon: FileText, label: 'My Reports', path: '/citizen/reports' },
         { icon: Radio, label: 'Report Damage', path: '/citizen/report' },
+        { icon: ScanSearch, label: 'Live Detection', path: '/citizen/live-detection' },
         { icon: Navigation, label: 'Safe Route', path: '/citizen/safe-route' },
         { icon: Settings, label: 'Settings', path: '/citizen/settings' },
     ],

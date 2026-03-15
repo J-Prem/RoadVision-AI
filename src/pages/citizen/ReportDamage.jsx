@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Camera, MapPin, Upload, X, CheckCircle, Cpu } from 'lucide-react';
+import config from '../../config';
 import './ReportDamage.css';
 
 const DAMAGE_TYPES = ['Pothole', 'Road Crack', 'Alligator Crack', 'Surface Damage', 'Edge Break', 'Manhole Issue', 'Other'];
@@ -22,23 +23,55 @@ const ReportDamage = () => {
         const reader = new FileReader();
         reader.onload = (e) => {
             setImage(e.target.result);
-            runAI();
+            runAI(file);
         };
         reader.readAsDataURL(file);
     };
 
-    const runAI = async () => {
+    const runAI = async (file) => {
         setAiLoading(true);
         setAiResult(null);
-        await new Promise(r => setTimeout(r, 2000));
-        const types = ['Pothole', 'Alligator Crack', 'Road Crack'];
-        const sevs = ['moderate', 'severe', 'critical'];
-        const t = types[Math.floor(Math.random() * types.length)];
-        const s = sevs[Math.floor(Math.random() * sevs.length)];
-        const conf = 85 + Math.floor(Math.random() * 14);
-        setAiResult({ type: t, severity: s, confidence: conf });
-        setForm(f => ({ ...f, type: t, severity: s }));
-        setAiLoading(false);
+        
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+            const response = await fetch(`${config.API_URL}/detect`, {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!response.ok) throw new Error('Backend offline');
+
+            const data = await response.json();
+            
+            if (data.detections && data.detections.length > 0) {
+                // Get highest confidence detection
+                const best = data.detections.sort((a, b) => b.confidence - a.confidence)[0];
+                
+                // Map YOLO classes to app types if needed
+                let type = best.label;
+                if (type === 'person') type = 'Other'; // Example mapping
+                
+                const severity = best.confidence > 0.8 ? 'severe' : best.confidence > 0.5 ? 'moderate' : 'minor';
+                
+                setAiResult({ 
+                    type: type, 
+                    severity: severity, 
+                    confidence: Math.round(best.confidence * 100) 
+                });
+                
+                setForm(f => ({ ...f, type: type, severity: severity }));
+            } else {
+                setAiResult({ type: 'No Damage Detected', severity: 'N/A', confidence: 100 });
+            }
+        } catch (err) {
+            console.error("AI detection failed:", err);
+            // Fallback to mock for demo if backend fails or just show error
+            setAiResult({ type: 'Detection Error', severity: 'N/A', confidence: 0 });
+        } finally {
+            setAiLoading(false);
+        }
     };
 
     const getGPS = () => {

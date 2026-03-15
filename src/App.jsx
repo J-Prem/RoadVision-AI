@@ -12,6 +12,7 @@ import ReportDamage from './pages/citizen/ReportDamage';
 import MyReports from './pages/citizen/MyReports';
 import MapView from './pages/citizen/MapView';
 import SafeRoute from './pages/citizen/SafeRoute';
+import LiveDetection from './pages/citizen/LiveDetection';
 
 // Admin Pages
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -55,6 +56,7 @@ const AppRoutes = () => {
         <Route path="reports" element={<MyReports />} />
         <Route path="map" element={<MapView />} />
         <Route path="safe-route" element={<SafeRoute />} />
+        <Route path="live-detection" element={<LiveDetection />} />
         <Route path="settings" element={<Settings />} />
       </Route>
 
